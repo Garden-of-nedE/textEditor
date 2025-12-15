@@ -26,7 +26,9 @@ BSD 2-Clause
 
 # Credits
 Project: https://github.com/snaptoken/kilo-tutorial/
+
 License: CC BY 4.0
 
 Project: https://github.com/antirez/kilo
+
 License: BSD 2-Clause, https://github.com/antirez/kilo/blob/master/LICENSE
