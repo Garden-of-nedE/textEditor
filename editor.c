@@ -53,7 +53,7 @@ enum editorHightlight {
 struct editorSyntax {
     char *filetype;
     char **filematch;
-    cahr **keywords;
+    char **keywords;
     char *singleline_comment_start;
     int flags;
 };
@@ -339,7 +339,7 @@ void editorSelectSyntaxHighlight() {
 
     char *ext = strrchr(E.filename, '.');
 
-    for (unsigned int j = 0;j < HLDB_ENTRIES; j++) {
+    for (unsigned int j = 0; j < HLDB_ENTRIES; j++) {
         struct editorSyntax *s = &HLDB[j];
         unsigned int i = 0;
         while (s->filematch[i]) {
@@ -733,7 +733,17 @@ void editorDrawRows(struct abuf *ab) {
             int current_color = -1;
             int j;
             for (j = 0; j < len; j++) {
-                if (hl[j] == HL_NORM) {
+                if (iscntrl(c[j])) {
+                    char sym = (c[j] <= 26) ? '@' + c[j] : '?';
+                    abAppend(ab, "\x1b[7m", 4);
+                    abAppend(ab, &sym, 1);
+                    abAppend(ab, "\x1b[m", 3);
+                    if (current_color != -1) {
+                        char buff[16];
+                        int clen = snprintf(buff, sizeof(buff), "\x1b[%dm", current_color);
+                        abAppend(ab, buff, clen);
+                    }
+                } else if (hl[j] == HL_NORM) {
                     if (current_color != -1) {
                         abAppend(ab, "\x1b[39m", 5);
                         current_color = -1;
