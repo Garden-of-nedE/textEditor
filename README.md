@@ -10,7 +10,7 @@ make
  ```
 
 ## Usage
-## Create New File
+### Create New File
 ``` 
 ./editor
 ```
