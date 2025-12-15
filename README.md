@@ -5,15 +5,21 @@ Basic text editor written in C.
 Created whist following this [tutorial](https://viewsourcecode.org/snaptoken/kilo/), with the goal of simulating a [kilo](https://antirez.com/news/108) editor.
 
 ## Compile
-``` make ```
+``` 
+make
+ ```
 
 ## Usage
 ## Create New File
-``` ./editor ```
+``` 
+./editor
+```
 
 ### Edit Existing File
 Ensure target file exists in project directory.
-``` ./editor <filename> ```
+```
+./editor <filename>
+```
 
 # License
 BSD 2-Clause
