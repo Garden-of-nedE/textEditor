@@ -17,7 +17,7 @@
 #include <unistd.h>
 
 /*** CONSTANTS ***/
-#define EDITOR_VERSION "0.0.1"
+#define EDITOR_VERSION "1.0.0"
 #define EDITOR_TAB_STOP 8
 #define EDITOR_QUIT_TIMES 3
 
